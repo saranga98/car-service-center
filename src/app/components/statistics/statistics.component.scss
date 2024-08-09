@@ -1,0 +1,67 @@
+.cls-main {
+  padding: 2%;
+}
+
+/* Card Container */
+.p-grid {
+  margin: 0;
+}
+
+.p-col-12 {
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    /* Stack cards vertically on mobile */
+  }
+}
+
+.p-card {
+  margin-bottom: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+    /* Slightly lift the card to create an embossed effect */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15),
+      /* Main shadow for depth */
+      0 8px 6px rgba(0, 0, 0, 0.1);
+    /* Additional shadow for more depth */
+  }
+
+  .p-card-header {
+    border-bottom: 2px solid currentColor;
+    margin-bottom: 1rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Flex Container for Cards */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    /* Stack cards vertically on mobile */
+  }
+}
+
+.flex-1 {
+  flex: 1;
+  margin: 0.5rem 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    /* Ensure cards take full width on mobile */
+  }
+}
+
+.p-card h2 {
+  margin: 0;
+  font-size: 2rem;
+}

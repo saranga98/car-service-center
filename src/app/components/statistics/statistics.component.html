@@ -1,0 +1,45 @@
+<div class="p-grid p-mt-4 p-mx-2 cls-main">
+  <!-- Flex Container for Cards -->
+  <div class="p-col-12 flex flex-wrap gap-4">
+    <!-- Total Cars Card -->
+    <div class="flex-1 p-card shadow-lg rounded-lg p-4 bg-white-100">
+      <div class="p-card-header flex items-center justify-between">
+        <div>
+          <h3 class="text-lg font-bold">{{ 'TOTAL_CARS' | translate }}</h3>
+        </div>
+        <div>
+          <i class="pi pi-car text-2xl text-white-600"></i>
+        </div>
+      </div>
+      <div class="p-card-body">
+        <h2 class="text-2xl font-bold">{{ totalCars }}</h2>
+        <p class="text-gray-700">{{ 'TOTAL_CARS_DESC' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Jobs In Progress Card -->
+    <div class="flex-1 p-card shadow-lg rounded-lg p-4 bg-white-100">
+      <div class="p-card-header flex items-center justify-between">
+        <div>
+          <h3 class="text-lg font-bold">{{ 'JOBS_IN_PROGRESS' | translate }}</h3>
+        </div>
+        <div>
+          <i class="pi pi-spinner text-2xl text-white-600"></i>
+        </div>
+      </div>
+      <div class="p-card-body">
+        <h2 class="text-2xl font-bold">{{ jobsInProgress }}</h2>
+        <p class="text-gray-700">{{ 'JOBS_IN_PROGRESS_DESC' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Status Pie Chart -->
+  <div class="p-col-12 p-md-12 p-lg-4">
+    <p-card [header]="'JOB_STATUS_DISTRIBUTION' | translate" class="shadow-lg rounded-lg p-4">
+      <p-chart type="pie" [data]="chartData"></p-chart>
+    </p-card>
+  </div>
+</div>
+
+<p-toast></p-toast>

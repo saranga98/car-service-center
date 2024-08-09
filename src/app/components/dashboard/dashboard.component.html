@@ -1,0 +1,71 @@
+<div class="block-content">
+  <div class="ng-star-inserted">
+    <div class="min-h-screen flex relative lg:static surface-ground bg-colo">
+      <!-- Hamburger Menu Button for Mobile View -->
+      <button class="hamburger-menu p-ripple p-element lg:hidden p-button-success" (click)="toggleSidebar()">
+        <i class="pi pi-bars text-2xl"></i>
+      </button>
+
+      <div id="app-sidebar-9"
+        class="sidebar-menu lg:block flex-shrink-0 absolute lg:static left-0 top-0 z-1 surface-border"
+        [ngClass]="{ 'collapsed': !isSidebarExpanded, 'expanded': isSidebarExpanded }">
+        <div class="flex flex-column h-full">
+          <div class="sidebar-header flex align-items-center justify-content-center">
+            <h2 style="width: 70%;">{{ 'TITLE' | translate }}</h2>
+          </div>
+          <div class="menu-list mt-3">
+            <ul class="list-none p-0 m-0">
+              <li>
+                <a (click)="showComponent('statistics')" [ngClass]="{ 'active': currentComponent === 'statistics' }"
+                  class="menu-item">
+                  <i class="pi pi-home"></i>
+                  <span>{{ 'DASHBOARD' | translate }}</span>
+                </a>
+              </li>
+              <li>
+                <a (click)="showComponent('car')" [ngClass]="{ 'active': currentComponent === 'car' }"
+                  class="menu-item">
+                  <i class="pi pi-search"></i>
+                  <span>{{ 'ADD_CAR' | translate }}</span>
+                </a>
+              </li>
+              <li>
+                <a (click)="showComponent('job')" [ngClass]="{ 'active': currentComponent === 'job' }"
+                  class="menu-item">
+                  <i class="pi pi-users"></i>
+                  <span>{{ 'ADD_JOBS' | translate }}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="min-h-screen flex flex-column relative flex-auto">
+        <div class="flex justify-content-between align-items-center p-4 border-bottom-1 surface-border cl-language">
+          <!-- Language Dropdown -->
+          <div class="language-dropdown">
+            <label for="language" class="mr-2">{{ 'LANGUAGE' | translate }}:</label>
+            <select id="language" (change)="changeLanguage($event)">
+              <option id="option-lan" value="en">{{ 'ENGLISH' | translate }}</option>
+              <option id="option-lan" value="es">{{ 'SPANISH' | translate }}</option>
+              <option id="option-lan" value="fr">{{ 'FRENCH' | translate }}</option>
+              <option id="option-lan" value="de">{{ 'GERMAN' | translate }}</option>
+              <option id="option-lan" value="it">{{ 'ITALIAN' | translate }}</option>
+              <option id="option-lan" value="pt">{{ 'PORTUGUESE' | translate }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div [ngSwitch]="currentComponent">
+          <app-statistics *ngSwitchCase="'statistics'"></app-statistics>
+          <app-car *ngSwitchCase="'car'"></app-car>
+          <app-job *ngSwitchCase="'job'"></app-job>
+          <div *ngSwitchDefault>
+            <app-statistics></app-statistics>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

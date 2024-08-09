@@ -1,0 +1,66 @@
+.add-job-main-div,
+.job-list-main-div {
+    margin: 2% 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .p-card {
+        &.p-shadow-2 {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .p-field {
+            margin: 5rem 0;
+
+            label {
+                margin: 2.5rem 0;
+            }
+
+
+        }
+
+        .p-button {
+            width: 100%;
+            // Make the button full width on mobile
+        }
+    }
+}
+
+.p-table {
+    width: 100%;
+    overflow-x: auto;
+
+    .p-datatable-responsive {
+        @media (max-width: 768px) {
+            .p-datatable-header {
+                display: none;
+            }
+
+            .p-datatable-tbody {
+                tr {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                }
+
+                td {
+                    display: block;
+                    text-align: right;
+                    position: relative;
+                    padding-left: 50%;
+                    white-space: nowrap;
+
+                    &::before {
+                        content: attr(data-label);
+                        position: absolute;
+                        left: 0;
+                        width: 50%;
+                        padding-left: 0.5rem;
+                        font-weight: bold;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

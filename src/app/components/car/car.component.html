@@ -1,0 +1,58 @@
+<div class="add-edit-car-main-div">
+  <p-card [header]="'ADD_EDIT_CAR' | translate" class="p-shadow-2 p-mb-4">
+    <div class="p-fluid grid formgrid">
+      <div class="field col-12 md:col-6">
+        <label for="make">{{ 'MAKE' | translate }}</label>
+        <input id="make" pInputText [(ngModel)]="newCar.make" />
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="model">{{ 'MODEL' | translate }}</label>
+        <input id="model" pInputText [(ngModel)]="newCar.model" />
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="year">{{ 'YEAR' | translate }}</label>
+        <input id="year" pInputText [(ngModel)]="newCar.year" />
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="licensePlate">{{ 'LICENSE_PLATE' | translate }}</label>
+        <input id="licensePlate" pInputText [(ngModel)]="newCar.licensePlate" />
+      </div>
+      <div class="col-12" style="display: flex; justify-content: center;">
+        <button style="width: 50%;" pButton type="button" (click)="addCar()" class="p-button-success"
+          [label]="editingIndex !== null ? ('UPDATE_CAR' | translate) : ('ADD_CAR' | translate)"></button>
+      </div>
+    </div>
+  </p-card>
+</div>
+
+<div class="available-cars-main-div">
+  <p-card [header]="'AVAILABLE_CARS' | translate" class="p-shadow-2 p-mb-4">
+    <p-table [value]="cars" [paginator]="true" [rows]="10" class="p-datatable-responsive">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ 'MAKE' | translate }}</th>
+          <th>{{ 'MODEL' | translate }}</th>
+          <th>{{ 'YEAR' | translate }}</th>
+          <th>{{ 'LICENSE_PLATE' | translate }}</th>
+          <th>{{ 'ACTIONS' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-car let-i="rowIndex">
+        <tr>
+          <td>{{ car.make }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.licensePlate }}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" (click)="editCar(i)" class="p-button-warning"
+              [pTooltip]="'EDIT' | translate" style="margin-right: 4%;"></button>
+            <button pButton icon="pi pi-trash" (click)="deleteCar(i)" class="p-button-danger"
+              [pTooltip]="'DELETE' | translate"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>
+
+<p-toast></p-toast>
